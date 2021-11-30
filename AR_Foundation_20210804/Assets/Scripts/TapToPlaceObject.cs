@@ -20,7 +20,7 @@ public class TapToPlaceObject : MonoBehaviour
     /// <summary>
     /// 射線碰撞到的物件清單
     /// </summary>
-    private List<ARRaycastHit> arHit;
+    private List<ARRaycastHit> arHit = new List<ARRaycastHit>();
 
     /// <summary>
     /// 點擊座標
@@ -50,7 +50,7 @@ public class TapToPlaceObject : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             // 儲存觸控座標
-            posClick = Input.GetTouch(0).position;
+            posClick = Input.mousePosition;
             // AR 管理器.射線碰撞(座標，碰撞清單，碰撞類型)
             arManager.Raycast(posClick, arHit, TrackableType.PlaneWithinPolygon);
 
